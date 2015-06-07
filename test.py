@@ -87,8 +87,14 @@ def findTestCase(root=False):
 if findTestCase(True):
     testCase += 1
 else:
-    exit(-1)
+    print "Did not find any tests in %s" % rootDir
+    print "Trying %s/tests/" % rootDir
+    #exit(-1)
 
+# Tests in /project/tests/ can be 1-indexed.  So don't fail immediately if
+# we don't find test 0.
+findTestCase(root=False)
+testCase += 1
 while findTestCase(root=False):
     testCase += 1
 

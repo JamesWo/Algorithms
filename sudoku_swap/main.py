@@ -1,3 +1,6 @@
+#Sudoku Swap
+#Taken from https://www.hackerrank.com/contests/w15/challenges/sudoku-swap
+
 # Enter your code here. Read input from STDIN. Print output to STDOUT
 def checkAllRows(grid):
     """
@@ -37,30 +40,22 @@ def isValid3x3(grid, x1, y1, x2, y2):
     """ 
     Checks all 3x3 grids are valid if we were to swap (x1,y1) with (x2,y2).
     """
-    #print "calling isvalid "
-    #print grid, x1, y1,x2,y2    
     v1 = grid[x1][y1]
     v2 = grid[x2][y2]
     grid[x1][y1] = v2
     grid[x2][y2] = v1
-    #print "new grid"
-    #for row in grid:
-    #    print row
     for i in range(0,9,3):
         for j in range(0,9,3):
             counts = {}
             for ii in range(i, i+3):
                 for jj in range(j, j+3):
                     val = grid[ii][jj]
-                    #print val
                     if val not in counts:
                         counts[val] = 1
                     else:
                         # restore the state of grid
                         grid[x1][y1] = v1
                         grid[x2][y2] = v2
-                        #print ("not valid on %d %d" % (i,j) ) 
-                        #print counts
                         return False
     grid[x1][y1] = v1
     grid[x2][y2] = v2
@@ -76,9 +71,7 @@ def printSolutionFromTuple(tuple1, tuple2):
     
 def solve(grid):
     rowSwaps = checkAllRows(grid)
-    #print rowSwaps
     colSwaps = checkAllCols(grid)
-    #print colSwaps
     if not rowSwaps and not colSwaps:
         print "Serendipity"
         return
@@ -99,7 +92,6 @@ def solve(grid):
             if isValid3x3(grid, rowPair[1], col1, rowPair[1], col2):
                 printSolution(rowPair[1], col1, rowPair[1], col2)
                 numPrintedSolutions += 1
-            #print "same not rowSwaps"
             assert numPrintedSolutions > 0
             return
    
@@ -117,7 +109,6 @@ def solve(grid):
         row1 = rows[0]
         row2 = rows[1]
         # there are two ways to swap back- one per column.  Check both for validity with respect to the 3x3 grid rule.
-        #print row1, row2
         
         if rowSwaps[row1] == rowSwaps[row2]:
             # there could be two possible ways to fix the sudoku.  Either the original swap, or the swap in the other row.
@@ -129,7 +120,6 @@ def solve(grid):
             if isValid3x3(grid, row1, colPair[1], row2, colPair[1]):
                 printSolution(row1, colPair[1], row2, colPair[1])
                 numPrintedSolutions += 1
-            #print "same not colSwaps"
             assert numPrintedSolutions > 0
             return
  
@@ -143,8 +133,6 @@ def solve(grid):
 
     else:
         # Only one swap is possible.  Find the intersection of the row and columns.
-        #print rowSwaps
-        #print colSwaps
         matches = {}
         foundMatches = []
         numPrintedSolutions = 0
@@ -171,11 +159,8 @@ def solve(grid):
                     if len(foundMatches) == 2:
                         printSolutionFromTuple(foundMatches[0], foundMatches[1])
                         numPrintedSolutions += 1
-        #print foundMatches
         assert numPrintedSolutions == 1, "expected numPrintedSolutions == 1.  actual: %d" % numPrintedSolutions
         return
-    
-
        
 numCases = input()
 for caseNumber in range(1, numCases+1):
@@ -184,7 +169,6 @@ for caseNumber in range(1, numCases+1):
         grid.append(map(int, raw_input().split(" ")))
     print "Case #%d:" % caseNumber
     solve(grid)
-
 
     
 # Some test cases        
