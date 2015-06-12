@@ -13,6 +13,7 @@ def maxSubarray(array):
     min = runningSum[0]
     mini = 0
     tmpMin = runningSum[0]
+    tmpMini = 0
     max = runningSum[0]
     maxi = 0
     for i in range(len(array)-1):
@@ -20,15 +21,17 @@ def maxSubarray(array):
         if runningSum[i+1] > max:
             max = runningSum[i+1]
             maxi = i+1
-        if runningSum[i+1] < min:
-            min = runningSum[i+1]
-            mini = i+1
+            min = tmpMin
+            mini = tmpMini
+        if runningSum[i+1] < tmpMin:
+            tmpMin = runningSum[i+1]
+            tmpMini = i+1
     print runningSum
     print min, mini
     print max, maxi
 
-    if array[mini] <= 0:
-        array[mini] += 1
-testArray = [ 1, 1, 1 ]
+#    if array[mini] <= 0:
+#        array[mini] += 1
+testArray = [ 0,0,1 ]
 maxSubarray(testArray)
 
