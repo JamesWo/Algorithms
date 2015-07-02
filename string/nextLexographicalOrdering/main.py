@@ -9,6 +9,7 @@ def next(s):
             s = s[:i+1] + s[i+1:][::-1]
             print i
             return s
+    return "no answer"
 
 def swap(s, i):
     # linear scan solution
@@ -21,3 +22,11 @@ def swap(s, i):
 def swap2(s, i):
     # binary search solution
     pass
+
+
+n = input()
+for i in range(n):
+    s = raw_input()
+    ans = next(s)
+    assert ans
+    print ans
