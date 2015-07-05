@@ -30,7 +30,7 @@ def main(argv):
     filePath = rootDir + "/%s.py" % testName
 
     if not os.path.isfile(filePath):
-        print "Error: Cannot find main.py in subdirectory %s" % leafDir
+        print "Error: Cannot find %s.py in subdirectory %s" % (testName, leafDir)
         exit(-1)
 
 
