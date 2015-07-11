@@ -46,6 +46,14 @@ s.push(5)
 assert s.minitem() == 3
 s.push(1)
 assert s.minitem() == 1
+
+s.push(7.5)
+assert s.minitem()==1
+assert s.pop() == 7.5
+s.push(0.5)
+assert s.minitem() == 0.5
+assert s.pop() == 0.5
+
 s.pop()
 assert s.minitem() == 3
 assert s.pop() == 5
