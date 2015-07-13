@@ -32,3 +32,4 @@ assert q.pop() == 1
 assert not q.isempty()
 assert q.pop() == 2
 assert q.isempty()
+assert q.pop() == False
