@@ -21,14 +21,20 @@ class stack(object):
     def isempty(self):
 	return self.head is None
 
+    def peek(self):
+        if self.head:
+            return self.head.item
+        return None
+
 # test
 s = stack()
 assert s.isempty()
 s.push(3)
 assert not s.isempty()
 s.push(5)
+assert s.peek() == 5
 assert s.pop() == 5
 assert not s.isempty()
 assert s.pop() == 3
 assert s.isempty()
-
+assert s.peek() == None
