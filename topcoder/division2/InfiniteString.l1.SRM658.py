@@ -21,8 +21,12 @@ def testGcd(numTimesToTest):
 
 class InfiniteString(object):
     def equal(self, s1, s2):
-	gcdRes = gcd(len(s1), len(s2))
-	return "Equal" if ( s1*(len(s2)/gcdRes) == s2*(len(s1)/gcdRes) ) else "Not Equal"
+	i = 0
+	while i<len(s1) or i<len(s2) or i%len(s1) != i%len(s2):
+	    if s1[i%len(s1)] != s2[i%len(s2)]:
+		return "Not Equal"
+	    i += 1
+	return "Equal"
 
 # test
 
@@ -38,5 +42,5 @@ inp = {
 
 for k, v in inp.iteritems():
     result = s.equal( k[0], k[1] )
-    assert result == v, "failed with input %s, output %s, expected %s" % ( str(k), str(v), str(result) )
+    assert result == v, "failed with input %s, expected %s, output %s" % ( str(k), str(v), str(result) )
 
