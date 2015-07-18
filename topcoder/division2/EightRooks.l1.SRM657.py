@@ -8,9 +8,9 @@ class EightRooks(object):
 	for col in range(8):
 	    rooksSeen = 0
 	    for row in range(8):
-		if board[col][row] == 'R':
+		if board[row][col] == 'R':
 		    rooksSeen += 1
-	    if rooksSeen != 1:
+	    if rooksSeen > 1:
 		return "Incorrect"
 	return "Correct"
 
@@ -50,7 +50,7 @@ inp = (
 )
 
 out = (
-"Correct", "Incorrect", "Correct"
+"Correct", "Incorrect", "Incorrect"
 )
 
 for k, v in zip(inp, out):
