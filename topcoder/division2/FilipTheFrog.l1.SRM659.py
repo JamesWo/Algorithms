@@ -1,5 +1,7 @@
 class FilipTheFrog(object):
     def countReachable(self, islands, jump):
+        # islands is originally a tuple
+        islands = list(islands)
 	start = islands[0]
 	islands.sort()
 	index = 0
