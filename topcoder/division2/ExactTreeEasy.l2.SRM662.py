@@ -3,13 +3,13 @@
 class ExactTreeEasy(object):
     def getTree(self, nodes, leaves):
         result = []
-        for i in range(nodes-leaves+1):
+        for i in range(1,leaves+1):
+            result.append(0)
             result.append(i)
-            result.append(i+1)
         appendTo = 1
-        for j in range(nodes-leaves+2, nodes):
+        for j in range(leaves+1, nodes):
             result.append(appendTo)
-            appendTo += 1
+            appendTo = j
             result.append(j)
         return result
 
