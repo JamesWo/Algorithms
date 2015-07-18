@@ -14,8 +14,7 @@ class Cyclemin(object):
 	    changed=0
 	    while changed < maxChange:
 		if j >= len(s):
-		    assert rotated == len(rotated)*'a', rotated
-		    return rotated
+		    return "".join(rotated)
 		if rotated[j] == 'a':
 		    j += 1
 		else:
