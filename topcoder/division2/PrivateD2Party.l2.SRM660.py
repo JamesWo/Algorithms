@@ -6,12 +6,17 @@ class PrivateD2party(object):
         curr = arr[i]
         cycle = set([i])
         while True:
+            if i == 1:
+                print curr, cycle
             cycle.add(curr)
             if curr == arr[curr]:
+                print "f1"
                 return False
             if arr[curr] == i:
+                print "p2"
                 return cycle
-            if curr in cycle:
+            if arr[curr] in cycle:
+                print "f3", curr, cycle
                 return False
             curr = arr[curr]
 
@@ -28,6 +33,9 @@ class PrivateD2party(object):
         return len(arr)-cycles
 
 tester = PrivateD2party()
+result = tester.getsz( [ 0, 4, 5, 1, 8, 1, 0, 0, 2, 8, 6, 0, 9] )
+assert result == 12, result
+
 result = tester.getsz( [5,2,2,4,5,0] )
 assert result == 5
 
