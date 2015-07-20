@@ -6,17 +6,12 @@ class PrivateD2party(object):
         curr = arr[i]
         cycle = set([i])
         while True:
-            if i == 1:
-                print curr, cycle
             cycle.add(curr)
             if curr == arr[curr]:
-                print "f1"
                 return False
             if arr[curr] == i:
-                print "p2"
                 return cycle
             if arr[curr] in cycle:
-                print "f3", curr, cycle
                 return False
             curr = arr[curr]
 
