@@ -7,20 +7,29 @@ class PrivateD2party(object):
         cycle = set([i])
         while True:
             cycle.add(curr)
-            if curr = arr[curr]:
+            if curr == arr[curr]:
                 return False
-            if curr == i:
+            if arr[curr] == i:
                 return cycle
+            if curr in cycle:
+                return False
             curr = arr[curr]
 
     def getsz(self, arr):
         cycle = set()
         cycles = 0
         for i in range(len(arr)):
-            if i in c:
+            if i in cycle:
                 continue
             c = self.isCycle(arr, i)
             if c:
                 cycles += 1
-                cycle.add(c)
+                cycle= cycle.union(c)
         return len(arr)-cycles
+
+tester = PrivateD2party()
+result = tester.getsz( [5,2,2,4,5,0] )
+assert result == 5
+
+result = tester.getsz( [1,0,3,2] )
+assert result == 2
