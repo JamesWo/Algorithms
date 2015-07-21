@@ -2,6 +2,10 @@
 # no coverting to other data structures and calling reverse()...
 
 def rev(x):
+    flipped = False
+    if x < 0:
+        flipped = True
+        x = -x
     result = 0
     digit = 0
     while x > 0:
@@ -11,6 +15,8 @@ def rev(x):
         result *= 10
         result += remainder
         x = x / 10
+    if flipped:
+        result = -result
     return result
 
 
@@ -24,6 +30,7 @@ inp = {
         505:505,
         506:605,
         1234567:7654321,
+        -321:-123,
         }
 
 for i, expected in inp.iteritems():
