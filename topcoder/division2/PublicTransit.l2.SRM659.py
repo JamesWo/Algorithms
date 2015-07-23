@@ -16,7 +16,7 @@ def minDistWithTeleporterFixedPoint(x1, y1, x2, y2, start1, start2, end1, end2):
 
 def allPairPos(rows, cols):
     allPos = tuple(itertools.product(range(rows), range(cols)))
-    return itertools.product(allPos, allPos)
+    return itertools.combinations(allPos, 2)
 
 def maxDistWithTeleporter(rows, cols, x1, y1, x2, y2):
     """Returns the maximum distance between any two positions, given a teleporter.
@@ -30,6 +30,8 @@ def maxDistWithTeleporter(rows, cols, x1, y1, x2, y2):
 
 class PublicTransit(object):
     def minimumLongestDistance(self, rows, cols):
+        if rows == cols == 1:
+            return 0
         best = float("inf")
         for pos1, pos2 in allPairPos(rows, cols):
             newResult = maxDistWithTeleporter(rows, cols, pos1[0], pos1[1], pos2[0], pos2[1])
@@ -42,6 +44,8 @@ cases = {
         (2,2):1,
         (5,3):4,
         (8,2):4,
+        (1,2):0,
+        (1,1):0
         }
 
 
