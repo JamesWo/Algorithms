@@ -23,7 +23,7 @@ def maxDistWithTeleporter(rows, cols, x1, y1, x2, y2):
     """
     best = 0
     for startPos, endPos in allPairPos(rows, cols):
-        cost = minDistWithTeleporterFixedPoint(x1, y1, x2, y1, startPos[0], startPos[1], endPos[0], endPos[1] )
+        cost = minDistWithTeleporterFixedPoint(x1, y1, x2, y2, startPos[0], startPos[1], endPos[0], endPos[1] )
         best = max(best, cost)
     return best
 
