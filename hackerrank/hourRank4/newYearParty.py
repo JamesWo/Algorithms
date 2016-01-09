@@ -1,4 +1,7 @@
 #!/bin/python
+
+# https://www.hackerrank.com/contests/hourrank-4/challenges/new-year-party
+
 import sys
 
 n = int(raw_input().strip())
