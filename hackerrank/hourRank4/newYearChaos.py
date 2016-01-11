@@ -1,5 +1,7 @@
 #!/bin/python
 
+# https://www.hackerrank.com/contests/hourrank-4/challenges/new-year-chaos
+
 import sys
 
 def countInversions(lst):
