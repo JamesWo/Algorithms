@@ -1,0 +1,53 @@
+a) A stick is broken into two pieces uniformly at random.  The longer piece is
+broken into two pieces uniformly at random.  Probability of 3 pieces forming a triangle?
+
+Lemma 1: Three sticks form a triangle iff 
+	the length of the largest stick < sum of the lengths of the two smaller sticks.
+Proof:  =>: Triangle Inequality.
+	<=: I haven't really thought about how to formally prove this.  So I'll leave
+		 it as an exercise :)  But this statement is intuitive.  
+		 Consider the longest side c.  Draw a circle of radius a at one
+		 endpoint, and a circle of radius b at another endpoint.
+		 Since a + b > c, the circles will intersect at some point above the
+		 line with length c.
+
+Y = length of the longest stick after the first split.
+X = length of the longest stick after the second split.
+
+Let the original stick have length 1.  Then, a direct implication of lemma 1 says the 3
+pieces form a triangle iff X < 0.5.  Consider the first
+splitting of the stick.  Y has length between 0.5 and 1.0, uniformly
+distributed- the probability of Y belonging to any inverval [a, b]
+with 0.5 < a < b < 1 is (b-a)*2, since the original split could happen on [a, b] or
+on the corresponding interval on the other half of the stick.  P(X<0.5) = 0.5.  This
+can be seen by symmetry.  For any delta in [0, .25],
+P(X<0.5|Y=0.5+delta) = P(X<0.5|Y=1-delta).  Since the split is uniform, the two
+halves "cancel out".  You can verify this by computation.
+
+b) A stick is broken into two pieces uniformly at random.  A randomly chosen
+piece is selected and broken into two pieces uniformly at random.  
+Probability of 3 pieces forming a triangle?
+
+Again we want X < 0.5.  Note that, after the first split, if we pick the
+shorter stick, with probability 1/2, the longer stick will have 
+length >= 0.5.  Thus, we can't form a triangle.  So the probability 
+that we can form a triangle in this case is 1/2 that of part (a), so 1/4.
+
+c) Assuming we can form a triangle, what is the probability that the triangle
+is obtuse?
+
+Lemma 2: Given any three sticks of length a <= b <= c that form a triangle,
+the three sticks form an obtuse triangle iff a^2 + b^2 < c^2.  
+
+Proof: (Again, this needs a bit of work to formalize) A right triangle satisfies 
+a^2 + b^2 = c^2.  If the length of the hypotenuse is increased, the opposite
+angle increases.
+
+TODO: finish proof.
+
+
+
+
+
+
+
